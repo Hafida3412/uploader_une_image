@@ -89,8 +89,7 @@ Pour cela on utilise la fonction PHP uniqid(). Elle attend 2 paramètres.Le prem
 qui servira de préfixe et le deuxième est un booléen (true / false) qui permet d’augmenter la taille de 
 la chaîne générée pour plus de sécurité.*/
 
-
-
+//SAUVEGARDER L IMAGE EN BASE DE DONNEES
 }
 
 
