@@ -67,9 +67,15 @@ if(in_array($extension, $extensions)){
     move_uploaded_file($tmpName, './upload/'.$name);
 }
 else{
-    echo "Mauvaise exteniosn ou taille trop grande";
+    echo "Une erreur est survenue";
 }
 
+//VERIFIER S IL Y A UNE ERREUR
+
+/*Lorsque que tu upload un fichier, PHP ajoute la variable $error = $_FILES[‘file’][‘error’];
+Cette variable est un chiffre et chaque chiffre représente une erreur (0 indique qu’il n’y a pas d’erreur)
+On rajoute un if et un else. Au lieu de "echo "Mauvaise extension ou taille trop grande";, on va 
+noter */
 
 
 }
