@@ -58,12 +58,20 @@ $extensions = ['jpg', 'png', 'jpeg', 'gif'];
 
 /*On s'assure que l’extension du fichier envoyé se trouve bien dans ce tableau grâce 
 à la fonction in_array. Sinon on affiche un message d'erreur*/
+
+//Taille max que l'on accepte
+$maxSize = 40000;//CONTROLER LA TAILLE DU FICHIER
+/*s’assurer que la taille du fichier uploadé n’est pas trop grande, elle se mesure en bytes*/
+
 if(in_array($extension, $extensions)){
-    move_uploades_file($tmpName, './upload/'.$name)
+    move_uploaded_file($tmpName, './upload/'.$name);
 }
 else{
-    echo "Mauvaise exteniosn";
+    echo "Mauvaise exteniosn ou taille trop grande";
 }
+
+
+
 }
 
 
