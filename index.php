@@ -63,8 +63,13 @@ $extensions = ['jpg', 'png', 'jpeg', 'gif'];
 $maxSize = 40000;//CONTROLER LA TAILLE DU FICHIER
 /*s’assurer que la taille du fichier uploadé n’est pas trop grande, elle se mesure en bytes*/
 
-if(in_array($extension, $extensions)){
-    move_uploaded_file($tmpName, './upload/'.$name);
+if(in_array($extension, $extensions) && $size <= $maxSize && $error == 0){
+    $uniqueName == uniqid('', true);
+    //uniqid génère quelsue chose comme ça:5f586bf96dcd38.73540086.jpg
+    $file = $uniqueName.".".$extension;
+    //$file = 5f586bf96dcd38.73540086.jpg
+
+    move_uploaded_file($tmpName, './upload/'.$name);//N’oublie pas de changer le nom du deuxième paramètre de la fonction move_uploaded_file ($name > $file)
 }
 else{
     echo "Une erreur est survenue";
@@ -75,7 +80,15 @@ else{
 /*Lorsque que tu upload un fichier, PHP ajoute la variable $error = $_FILES[‘file’][‘error’];
 Cette variable est un chiffre et chaque chiffre représente une erreur (0 indique qu’il n’y a pas d’erreur)
 On rajoute un if et un else. Au lieu de "echo "Mauvaise extension ou taille trop grande";, on va 
-noter */
+noter: echo "Une erreur est survenue"; */
+
+//AVOIR UN NOM UNIQUE PAR FICHIER
+/* il faut changer le nom du fichier pour qu’il soit unique avant de l’uploader.Il ne faut
+pas que ce soit un nom commun <<chat.png>> ou <<maison.png>>
+Pour cela on utilise la fonction PHP uniqid(). Elle attend 2 paramètres.Le premier est une chaîne de caractère 
+qui servira de préfixe et le deuxième est un booléen (true / false) qui permet d’augmenter la taille de 
+la chaîne générée pour plus de sécurité.*/
+
 
 
 }
