@@ -19,12 +19,16 @@ if(isset($_FILES['file'])){
 
     //CREATION D UN TABLEAU DES EXTENSIONS AUTORISEES
     $extensionsAutorisees = ['jpg', 'jpeg', 'gif', 'png'];
-    $tailleMax = 40000; //taille en bytes
+    $tailleMax = 400000; //taille en bytes
     if(in_array($extension, $extensionsAutorisees) && $size <= $tailleMax && $error == 0){
         $uniqueName = uniqid('', true);
+        //var_dump($uniqueName);
+        $fileName = $uniqueName.'.'. $extension;
         
-        move_uploaded_file($tmpName,'./upload/'.$name);
-
+        move_uploaded_file($tmpName,'./upload/'.$fileName);
+     
+       
+       
     }
     else{
         echo'Mauvaise extension ou taille trop importante ou erreur';
