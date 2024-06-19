@@ -1,4 +1,8 @@
 <?php
+
+// ON RAJOUTE LE FICHIER BDD AU SCRIPT PRINCIPAL
+require './bdd.php';
+
 //var_dump($_POST);
 //var_dump($_FILES);
 /*$GET https:://monsite.fr?parametre=test
