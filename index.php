@@ -43,10 +43,7 @@ if(isset($_FILES['file'])){
 
 }
 
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -58,8 +55,16 @@ if(isset($_FILES['file'])){
             <label for="file">Fichier</label>
             <input type="file" name="file">
             <button type="submit">Enregistrer</button>
-
         </form>
+        <h2>Mes images</h2>
+        <?php
+    $req = $db->query('SELECT name from file');
+    while ($data = $req->fetch()){//tant qu'on a des résultats, on boucle dessus
+    //var_dump($data);
+    echo '<img src="./upload/'.$data['name'].'"width="200px"><br>';
+    }
+?>
+
     </body>
 
 </html>
