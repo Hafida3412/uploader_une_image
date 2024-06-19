@@ -31,8 +31,11 @@ if(isset($_FILES['file'])){
         
         move_uploaded_file($tmpName,'./upload/'.$fileName);
      
-       
-       
+        //ON AJOUTE UNE REQUETE
+        $req = $db->prepare('INSERT INTO file (name) VALUES (?)');//On met autant de ? qu'il y a d'éléments qu'on lui passe dans le "execute"
+        $req->execute([$fileName]);
+        
+        echo "Image enregistrée";
     }
     else{
         echo'Mauvaise extension ou taille trop importante ou erreur';
